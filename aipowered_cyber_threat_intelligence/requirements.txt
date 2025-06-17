@@ -1,0 +1,9 @@
+django
+streamlit
+pandas
+numpy
+matplotlib
+scikit-learn
+joblib
+altair
+folium
