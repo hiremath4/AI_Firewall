@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-myt#yi36g8q)2draq7*kugc)x#ioa2og%k68bc1($=k@)v2jld
 DEBUG = True
 
 ALLOWED_HOSTS = ['ai-firewall-1.onrender.com', 'localhost', 'django-backend-lltu.onrender.com']
-
+BASE_URL = "https://django-backend-lltu.onrender.com"  
 
 # Application definition
 
