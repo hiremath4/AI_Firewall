@@ -2,28 +2,15 @@ services:
   - name: streamlit-app
     type: web
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python -m streamlit run Home.py 
-    startCommand: python manage.py runserver  
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
-    buildFilter:
-      paths:
-        - ai traffic/**
-    plan: free
     rootDir: ai traffic
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run Home.py --server.port $PORT --server.enableCORS false
+    plan: free
 
   - name: django-backend
     type: web
     env: python
-    buildCommand: pip install -r requirements.txt
-
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10
-    buildFilter:
-      paths:
-        - aipowered_cyber_threat_intelligence/**
-    plan: free
     rootDir: aipowered_cyber_threat_intelligence
+    buildCommand: pip install -r requirements.txt
+    startCommand: python manage.py runserver 0.0.0.0:$PORT
+    plan: free
