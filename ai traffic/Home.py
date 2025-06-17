@@ -15,7 +15,14 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.preprocessing import Binarizer
 
+import requests
+import os
 
+# Switch between local and deployed backend
+if os.getenv("IS_RENDER"):
+    BASE_URL = "https://django-backend-lltu.onrender.com"
+else:
+    BASE_URL = "http://localhost:8000"
 # Set page configuration
 st.set_page_config(
     page_title="AI Cyber Threat Intelligence System",
