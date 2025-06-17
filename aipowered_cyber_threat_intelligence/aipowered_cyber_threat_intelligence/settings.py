@@ -49,7 +49,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-backend-lltu.onrender.com',
+    'https://ai-firewall-1.onrender.com',
+]
 ROOT_URLCONF = 'aipowered_cyber_threat_intelligence.urls'
 
 TEMPLATES = [
