@@ -1,4 +1,5 @@
 services:
+    startCommand: python aipowered_cyber_threat_intelligence/manage.py runserver 0.0.0.0:$PORT
   - name: streamlit-app
     type: web
     env: python
