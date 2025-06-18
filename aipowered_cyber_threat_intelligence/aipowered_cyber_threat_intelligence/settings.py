@@ -13,7 +13,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 if DEBUG:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 else:
-    ALLOWED_HOSTS = ['your-django-service-name.onrender.com', 'localhost']
+    ALLOWED_HOSTS = ['django-backend-lltu.onrender.com', 'localhost']
 
 # -----------------------------
 # APPLICATIONS
