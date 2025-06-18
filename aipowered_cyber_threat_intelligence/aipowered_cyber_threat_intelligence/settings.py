@@ -11,7 +11,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 # Allow all hosts in debug, restrict in production
 if DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1','django-backend-lltu.onrender.com']
 else:
     ALLOWED_HOSTS = ['django-backend-lltu.onrender.com', 'localhost']
 
