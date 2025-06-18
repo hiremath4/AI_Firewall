@@ -10,7 +10,7 @@ services:
   - name: django-backend
     type: web
     env: python
-    rootDir: aipowered_cyber_threat_intelligence
+    rootDir: ai traffic/aipowered_cyber_threat_intelligence
     buildCommand: pip install -r requirements.txt
     startCommand: python aipowered_cyber_threat_intelligence/manage.py runserver 0.0.0.0:$PORT
     plan: free
