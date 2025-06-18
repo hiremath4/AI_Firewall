@@ -1,16 +1,26 @@
 services:
-  - name: streamlit-app
-    type: web
+  - type: web
+    name: django-backend
     env: python
-    rootDir: ai traffic
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run Home.py --server.port $PORT --server.enableCORS false
+    startCommand: python manage.py runserver
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: 'django.db.backends.sqlite3'
+          property: connectionString
+      - key: DJANGO_SECRET_KEY
+        value: 'django-insecure-myt#yi36g8q)2draq7*kugc)x#ioa2og%k68bc1($=k@)v2jld'
+      - key: DEBUG
+        value: "False"
     plan: free
 
-  - name: django-backend
-    type: web
+  - type: web
+    name: streamlit-frontend
     env: python
-    rootDir: ai traffic/aipowered_cyber_threat_intelligence
     buildCommand: pip install -r requirements.txt
-    startCommand: python aipowered_cyber_threat_intelligence/manage.py runserver 0.0.0.0:$PORT
+    startCommand: streamlit run app.py --server.port 10000 --server.address 0.0.0.0
+    envVars:
+      - key: DJANGO_API_URL
+        value: https://django-backend.onrender.com
     plan: free
